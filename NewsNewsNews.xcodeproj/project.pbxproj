@@ -15,8 +15,9 @@
 		D77474B3251E63B00066D55C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D77474B2251E63B00066D55C /* Assets.xcassets */; };
 		D77474B6251E63B00066D55C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D77474B4251E63B00066D55C /* LaunchScreen.storyboard */; };
 		D7751FA6251FA5F500BD484E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7751FA5251FA5F500BD484E /* CollectionViewController.swift */; };
-		D7751FAA251FAEE600BD484E /* NewsCategoriesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7751FA9251FAEE600BD484E /* NewsCategoriesApi.swift */; };
+		D7751FAA251FAEE600BD484E /* NewsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7751FA9251FAEE600BD484E /* NewsApi.swift */; };
 		D7751FAC251FE17E00BD484E /* SourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7751FAB251FE17E00BD484E /* SourcesViewController.swift */; };
+		D7751FAE251FE6EB00BD484E /* NetworkURLComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7751FAD251FE6EB00BD484E /* NetworkURLComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +31,9 @@
 		D77474B5251E63B00066D55C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D77474B7251E63B00066D55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7751FA5251FA5F500BD484E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		D7751FA9251FAEE600BD484E /* NewsCategoriesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCategoriesApi.swift; sourceTree = "<group>"; };
+		D7751FA9251FAEE600BD484E /* NewsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApi.swift; sourceTree = "<group>"; };
 		D7751FAB251FE17E00BD484E /* SourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesViewController.swift; sourceTree = "<group>"; };
+		D7751FAD251FE6EB00BD484E /* NetworkURLComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkURLComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +69,7 @@
 				D77474A6251E63A80066D55C /* AppDelegate.swift */,
 				D77474A8251E63A80066D55C /* SceneDelegate.swift */,
 				D7751FA7251FAE9100BD484E /* ViewControllers */,
-				D7751FA8251FAEA100BD484E /* Apis */,
+				D7751FA8251FAEA100BD484E /* Networking */,
 				D77474AC251E63A80066D55C /* Main.storyboard */,
 				D77474B2251E63B00066D55C /* Assets.xcassets */,
 				D77474B4251E63B00066D55C /* LaunchScreen.storyboard */,
@@ -87,12 +89,13 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		D7751FA8251FAEA100BD484E /* Apis */ = {
+		D7751FA8251FAEA100BD484E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				D7751FA9251FAEE600BD484E /* NewsCategoriesApi.swift */,
+				D7751FA9251FAEE600BD484E /* NewsApi.swift */,
+				D7751FAD251FE6EB00BD484E /* NetworkURLComponent.swift */,
 			);
-			path = Apis;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,7 +172,8 @@
 				D77474B1251E63A80066D55C /* NewsNewsNews.xcdatamodeld in Sources */,
 				D7751FA6251FA5F500BD484E /* CollectionViewController.swift in Sources */,
 				D77474AB251E63A80066D55C /* ViewController.swift in Sources */,
-				D7751FAA251FAEE600BD484E /* NewsCategoriesApi.swift in Sources */,
+				D7751FAA251FAEE600BD484E /* NewsApi.swift in Sources */,
+				D7751FAE251FE6EB00BD484E /* NetworkURLComponent.swift in Sources */,
 				D77474A7251E63A80066D55C /* AppDelegate.swift in Sources */,
 				D77474A9251E63A80066D55C /* SceneDelegate.swift in Sources */,
 				D7751FAC251FE17E00BD484E /* SourcesViewController.swift in Sources */,

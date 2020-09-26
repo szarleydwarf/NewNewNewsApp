@@ -21,7 +21,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     fileprivate func fetchCategories() {
-        guard let url = URL(string: urlString) else {return}
+        let urlComponent = NetworkURLComponent()
+        let urlc = urlComponent.urlComponents.url
+        print("url >\(urlc)")
+//        guard let url = URL(string: urlString) else {return}
+        guard let url = urlc else {return}
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             guard let data = data else {return}
             let sources = try? JSONDecoder().decode(Sources.self, from: data)
@@ -61,7 +65,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let sourcesViewController = storyboard.instantiateViewController(withIdentifier: "SourcesViewController")
+        let sourcesViewController = storyboard.instantiateViewController(withIdentifier: "SourcesViewController") as! SourcesViewController
+        sourcesViewController.category = self.categoriesArray[indexPath.row]
         self.navigationController?.pushViewController(sourcesViewController, animated: true)
     }
 }

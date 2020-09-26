@@ -13,12 +13,19 @@ class SourcesViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var sourcesTableView: UITableView!
     var sourceArray:[String]=[]
     let cellIdentifier: String = "sourceCell"
-    var category:String = ""
+    var category:String?
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Source category > \(category)")
         self.sourcesTableView.dataSource = self
         self.sourcesTableView.delegate = self
+        
+        fetchSources()
+    }
+    
+    fileprivate func fetchSources() {
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
