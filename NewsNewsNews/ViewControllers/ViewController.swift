@@ -26,6 +26,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             guard let data = data else {return}
             let sources = try? JSONDecoder().decode(Sources.self, from: data)
             guard let unwrapedSources = sources else {return}
+            //for sure there is a better way to do this
+            //todo chck this later
             for category in unwrapedSources.sources {
                 self.categoriesArray.append(category.category)
             }
@@ -55,6 +57,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.textLabel?.text = self.categoriesArray[indexPath.row].capitalized
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let sourcesViewController = storyboard.instantiateViewController(withIdentifier: "SourcesViewController")
+        self.navigationController?.pushViewController(sourcesViewController, animated: true)
     }
 }
 

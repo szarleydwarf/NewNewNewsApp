@@ -39,6 +39,40 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="119.86607142857142"/>
         </scene>
+        <!--Sources View Controller-->
+        <scene sceneID="3fb-TM-3r7">
+            <objects>
+                <viewController storyboardIdentifier="SourcesViewController" id="FTQ-yl-tv2" customClass="SourcesViewController" customModule="NewsNewsNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Bd-cN-0zR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jk0-JT-1hN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="FTQ-yl-tv2" id="kok-IR-qmP"/>
+                                    <outlet property="delegate" destination="FTQ-yl-tv2" id="aQ1-83-PDS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Jk0-JT-1hN" firstAttribute="leading" secondItem="TFr-SJ-81l" secondAttribute="leading" id="G31-pg-gnb"/>
+                            <constraint firstItem="TFr-SJ-81l" firstAttribute="bottom" secondItem="Jk0-JT-1hN" secondAttribute="bottom" id="IqY-EZ-WcI"/>
+                            <constraint firstItem="Jk0-JT-1hN" firstAttribute="top" secondItem="TFr-SJ-81l" secondAttribute="top" id="Vrh-jD-DvI"/>
+                            <constraint firstItem="TFr-SJ-81l" firstAttribute="trailing" secondItem="Jk0-JT-1hN" secondAttribute="trailing" id="jJo-h7-4hw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TFr-SJ-81l"/>
+                    </view>
+                    <connections>
+                        <outlet property="sourcesTableView" destination="Jk0-JT-1hN" id="z5O-MN-4K3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3i2-7a-fKJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="120"/>
+        </scene>
         <!--Collection View Controller-->
         <scene sceneID="G1c-T6-rTk">
             <objects>
@@ -79,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-ON-QcB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688" y="120"/>
+            <point key="canvasLocation" x="2601" y="120"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nEZ-Th-NEP">

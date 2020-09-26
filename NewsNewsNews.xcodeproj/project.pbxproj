@@ -16,6 +16,7 @@
 		D77474B6251E63B00066D55C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D77474B4251E63B00066D55C /* LaunchScreen.storyboard */; };
 		D7751FA6251FA5F500BD484E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7751FA5251FA5F500BD484E /* CollectionViewController.swift */; };
 		D7751FAA251FAEE600BD484E /* NewsCategoriesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7751FA9251FAEE600BD484E /* NewsCategoriesApi.swift */; };
+		D7751FAC251FE17E00BD484E /* SourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7751FAB251FE17E00BD484E /* SourcesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D77474B7251E63B00066D55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7751FA5251FA5F500BD484E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		D7751FA9251FAEE600BD484E /* NewsCategoriesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCategoriesApi.swift; sourceTree = "<group>"; };
+		D7751FAB251FE17E00BD484E /* SourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				D77474AA251E63A80066D55C /* ViewController.swift */,
 				D7751FA5251FA5F500BD484E /* CollectionViewController.swift */,
+				D7751FAB251FE17E00BD484E /* SourcesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				D7751FAA251FAEE600BD484E /* NewsCategoriesApi.swift in Sources */,
 				D77474A7251E63A80066D55C /* AppDelegate.swift in Sources */,
 				D77474A9251E63A80066D55C /* SceneDelegate.swift in Sources */,
+				D7751FAC251FE17E00BD484E /* SourcesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
