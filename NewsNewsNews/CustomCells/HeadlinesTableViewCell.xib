@@ -38,12 +38,13 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUo-Hc-5mX">
-                        <rect key="frame" x="271" y="96" width="49" height="31"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUo-Hc-5mX">
+                        <rect key="frame" x="271" y="96" width="51" height="31"/>
                     </switch>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="mUo-Hc-5mX" secondAttribute="bottom" id="FXF-Dl-bwn"/>
+                    <constraint firstAttribute="trailing" secondItem="mUo-Hc-5mX" secondAttribute="trailing" id="I9V-w1-fbF"/>
                     <constraint firstItem="hv9-Qu-BDT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="VNO-Qf-Xgb"/>
                     <constraint firstAttribute="trailing" secondItem="hv9-Qu-BDT" secondAttribute="trailing" constant="2" id="ZQD-40-IKv"/>
                     <constraint firstItem="hv9-Qu-BDT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="amd-dP-thn"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class SourcesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -16,6 +17,20 @@ class SourcesViewController: UIViewController, UITableViewDataSource, UITableVie
     let cellIdentifier: String = "sourceCell"
     var category:String?
    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ProgressHUD.colorAnimation = .red
+        ProgressHUD.animationType = .lineScaling
+        ProgressHUD.show()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        ProgressHUD.dismiss()
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sourcesTableView.dataSource = self
@@ -64,7 +79,7 @@ class SourcesViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let headlinesViewController = storyboard.instantiateViewController(identifier: "HeadlinesViewController") as! HeadlinesViewController
+        let headlinesViewController = storyboard.instantiateViewController(withIdentifier: "HeadlinesViewController") as! HeadlinesViewController
         headlinesViewController.source = self.sourceArray[indexPath.row]
         self.navigationController?.pushViewController(headlinesViewController, animated: true)
 //        let collectionViewController = storyboard.instantiateViewController(withIdentifier: "CollectionViewController") as! CollectionViewController

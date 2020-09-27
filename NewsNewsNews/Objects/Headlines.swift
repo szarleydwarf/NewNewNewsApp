@@ -15,6 +15,7 @@ struct Headlines: Decodable {
 struct Article:Decodable{
     let title:String
     let description:String?
+    let url:URL
     let urlToImage:URL
 //    let source:[String:String]
 }

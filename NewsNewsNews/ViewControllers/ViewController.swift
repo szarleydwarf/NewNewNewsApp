@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "theCell"
     var categoriesArray: [String] = []
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ProgressHUD.colorAnimation = .red
+        ProgressHUD.animationType = .lineSpinFade
+        ProgressHUD.show()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        ProgressHUD.dismiss()
+    }
+
     fileprivate func setTableView() {
         self.tableView.dataSource = self
         self.tableView.delegate = self

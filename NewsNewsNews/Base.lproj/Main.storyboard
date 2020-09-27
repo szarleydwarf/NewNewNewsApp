@@ -58,6 +58,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tQ1-F7-Ne4">
                                 <rect key="frame" x="10" y="123" width="394" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HeadlinesTableViewCell" id="ZfD-KA-ZoG">
+                                        <rect key="frame" x="0.0" y="28" width="394" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZfD-KA-ZoG" id="A21-bf-GD9">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hedlines from " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4L-sm-2CW">
                                 <rect key="frame" x="20" y="74" width="374" height="29"/>
@@ -95,22 +105,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the article title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7C-18-An8">
-                                <rect key="frame" x="10" y="54" width="394" height="103"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zg-Pu-Ozh">
+                                <rect key="frame" x="10" y="54" width="394" height="808"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="B7C-18-An8" firstAttribute="leading" secondItem="Bqb-zD-xo4" secondAttribute="leading" constant="10" id="e1Q-yl-3HH"/>
-                            <constraint firstItem="B7C-18-An8" firstAttribute="top" secondItem="Bqb-zD-xo4" secondAttribute="top" constant="10" id="mZz-0F-NYQ"/>
-                            <constraint firstItem="Bqb-zD-xo4" firstAttribute="trailing" secondItem="B7C-18-An8" secondAttribute="trailing" constant="10" id="zFQ-xD-qAf"/>
-                            <constraint firstItem="Bqb-zD-xo4" firstAttribute="bottom" secondItem="B7C-18-An8" secondAttribute="bottom" constant="705" id="zku-u9-Dd2"/>
+                            <constraint firstItem="Bqb-zD-xo4" firstAttribute="trailing" secondItem="4Zg-Pu-Ozh" secondAttribute="trailing" constant="10" id="PCR-PV-rDF"/>
+                            <constraint firstItem="4Zg-Pu-Ozh" firstAttribute="top" secondItem="Bqb-zD-xo4" secondAttribute="top" constant="10" id="beR-Np-Nl7"/>
+                            <constraint firstItem="4Zg-Pu-Ozh" firstAttribute="leading" secondItem="Bqb-zD-xo4" secondAttribute="leading" constant="10" id="bwd-vh-cK2"/>
+                            <constraint firstItem="Bqb-zD-xo4" firstAttribute="bottom" secondItem="4Zg-Pu-Ozh" secondAttribute="bottom" id="zmq-us-o2C"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bqb-zD-xo4"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="4Zg-Pu-Ozh" id="fTX-zw-h2J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sww-gg-4np" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

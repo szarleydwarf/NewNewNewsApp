@@ -52,7 +52,6 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         guard let sourceName = self.source?.name else{return}
         text += sourceName
         self.headlinesLabel.text = text
-    
     }
     
 
@@ -60,7 +59,7 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         self.headlinesTableView.dataSource = self
         self.headlinesTableView.delegate = self
-        self.headlinesTableView.register(HeadlinesTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        self.headlinesTableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
 //        self.headlinesTableView.register(UINib(nibName: "HeadlinesTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
         
         setLabel()
@@ -72,16 +71,21 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeadlinesTableViewCell
-        
-        let article = self.headlines[indexPath.row]
-        cell.titleLabel?.text = article.title
-        cell.descriptionLabel?.text = article.description
-//        if let data = try? Data(contentsOf: article.urlToImage){
-//            cell.imageViewPlaceholder?.image = UIImage(data: data)
-//            cell.imageViewPlaceholder.kf.setImage(with: article.urlToImage, placeholder: UIImage(imageLiteralResourceName: "ninja"))
-//        }
+        var cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
+        let headline = self.headlines[indexPath.row]
+
+        cell.imageView?.kf.setImage(with: headline.urlToImage, placeholder: UIImage(imageLiteralResourceName: "ninja"))
+        cell.textLabel?.text = headline.title
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let articleViewController = storyboard.instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
+        
+        articleViewController.source = self.headlines[indexPath.row]
+        
+        self.navigationController?.pushViewController(articleViewController, animated: true)
     }
 }
