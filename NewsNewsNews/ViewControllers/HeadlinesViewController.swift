@@ -76,7 +76,7 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
 
         cell.imageView?.kf.setImage(with: headline.urlToImage, placeholder: UIImage(imageLiteralResourceName: "ninja"))
         cell.textLabel?.text = headline.title
-        
+        cell.selectionStyle = .none
         return cell
     }
     
