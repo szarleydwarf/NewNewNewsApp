@@ -78,8 +78,8 @@
             filePath = "NewsNewsNews/ViewControllers/SourcesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "fetchSources()"
             landmarkType = "7">
             <Locations>
@@ -119,16 +119,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7412CD97-24CF-4FC5-AD69-3CCAC6339170"
+            uuid = "667861AC-7E46-4E2F-B8FB-590C7EACB304"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NewsNewsNews/ViewControllers/SourcesViewController.swift"
+            filePath = "NewsNewsNews/ViewControllers/CollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "update(the:with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

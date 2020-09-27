@@ -14,15 +14,16 @@ struct NetworkURLComponent {
     private let scheme:String = "https"
     private let host:String = "newsapi.org"
     private let sourcePath:String = "/v2/sources"
-    private let headlinesPath:String = "top-headlines"
-    private let apiKey:[URLQueryItem] = [URLQueryItem(name: "apiKey", value: "86316c5c482a49cca90420b39ee0a695")]
+    private let headlinesPath:String = "/v2/top-headlines"
+    private let apiKey:URLQueryItem = URLQueryItem(name: "apiKey", value: "86316c5c482a49cca90420b39ee0a695")
+    var sourceQueryItem:URLQueryItem = URLQueryItem(name: "sources", value: "")
     
     var urlComponentsSource:URLComponents{
         var urlComponentsSources = URLComponents()
         urlComponentsSources.scheme = self.scheme
         urlComponentsSources.host = self.host
         urlComponentsSources.path = self.sourcePath
-        urlComponentsSources.queryItems = self.apiKey
+        urlComponentsSources.queryItems = [self.apiKey]
         
         return urlComponentsSources
     }
@@ -32,7 +33,7 @@ struct NetworkURLComponent {
         urlComponentsHeadlines.scheme = self.scheme
         urlComponentsHeadlines.host = self.host
         urlComponentsHeadlines.path = self.headlinesPath
-        urlComponentsHeadlines.queryItems = self.apiKey
+        urlComponentsHeadlines.queryItems = [self.apiKey, self.sourceQueryItem]
 
         return urlComponentsHeadlines
     }

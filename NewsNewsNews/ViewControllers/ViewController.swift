@@ -22,7 +22,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     fileprivate func fetchCategories() {
         let urlComponents = NetworkURLComponent()
         guard let url = urlComponents.urlComponentsSource.url else {return}
-        print("1 url >\(url)")
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             guard let data = data else {return}
             let sources = try? JSONDecoder().decode(Sources.self, from: data)

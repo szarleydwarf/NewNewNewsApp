@@ -39,7 +39,6 @@ class SourcesViewController: UIViewController, UITableViewDataSource, UITableVie
         guard let category = self.category else {return}
         urlComponent.queryItems?.append( URLQueryItem(name: "category", value: category))
         guard let url = urlComponent.url else{return}
-        print("query url> \(url)")
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else {return}
             let sources = try? JSONDecoder().decode(Sources.self, from: data)
