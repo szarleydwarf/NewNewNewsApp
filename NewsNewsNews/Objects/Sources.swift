@@ -13,6 +13,7 @@ struct Sources: Decodable {
 }
 
 struct NewsCategory:Decodable {
+    let id:String
     let name: String
     let category: String
 }

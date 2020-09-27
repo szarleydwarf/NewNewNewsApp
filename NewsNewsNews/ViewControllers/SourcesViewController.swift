@@ -35,7 +35,7 @@ class SourcesViewController: UIViewController, UITableViewDataSource, UITableVie
     
     fileprivate func fetchSources() {
         let urlComponents = NetworkURLComponent()
-        var urlComponent = urlComponents.urlComponents
+        var urlComponent = urlComponents.urlComponentsSource
         guard let category = self.category else {return}
         urlComponent.queryItems?.append( URLQueryItem(name: "category", value: category))
         guard let url = urlComponent.url else{return}
@@ -63,5 +63,11 @@ class SourcesViewController: UIViewController, UITableViewDataSource, UITableVie
         
         return cell
     }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let collectionViewController = storyboard.instantiateViewController(withIdentifier: "CollectionViewController") as! CollectionViewController
+        
+        collectionViewController.source = self.sourceArray[indexPath.row]
+        self.navigationController?.pushViewController(collectionViewController, animated: true)
+    }
 }

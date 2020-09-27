@@ -11,13 +11,30 @@ import Foundation
 
 
 struct NetworkURLComponent {
-    var urlComponents:URLComponents{
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "newsapi.org"
-        urlComponents.path = "/v2/sources"
-        urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "86316c5c482a49cca90420b39ee0a695")]
+    private let scheme:String = "https"
+    private let host:String = "newsapi.org"
+    private let sourcePath:String = "/v2/sources"
+    private let headlinesPath:String = "top-headlines"
+    private let apiKey:[URLQueryItem] = [URLQueryItem(name: "apiKey", value: "86316c5c482a49cca90420b39ee0a695")]
+    
+    var urlComponentsSource:URLComponents{
+        var urlComponentsSources = URLComponents()
+        urlComponentsSources.scheme = self.scheme
+        urlComponentsSources.host = self.host
+        urlComponentsSources.path = self.sourcePath
+        urlComponentsSources.queryItems = self.apiKey
         
-        return urlComponents
+        return urlComponentsSources
+    }
+    
+    var urlComponentsHeadLines:URLComponents {
+        var urlComponentsHeadlines = URLComponents()
+        urlComponentsHeadlines.scheme = self.scheme
+        urlComponentsHeadlines.host = self.host
+        urlComponentsHeadlines.path = self.headlinesPath
+        urlComponentsHeadlines.queryItems = self.apiKey
+
+        return urlComponentsHeadlines
     }
 }
+

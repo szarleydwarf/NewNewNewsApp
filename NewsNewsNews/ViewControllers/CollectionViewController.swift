@@ -11,7 +11,8 @@ import UIKit
 class CollectionViewController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    let cellIdentifier = "collectionCell"
+    let cellIdentifier = "HeadLinesCell"
+    var source:NewsCategory?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,7 @@ class CollectionViewController : UIViewController, UICollectionViewDataSource, U
         self.collectionView.delegate = self
         self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: self.cellIdentifier)
         
+        print("source in collection \(self.source)")
     }
     
     //UICollectionViewDelegateFlowLayout methods
