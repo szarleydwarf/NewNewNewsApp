@@ -68,5 +68,69 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "23050EF0-2C10-4F3D-93EE-0C6B0CF8537D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsNewsNews/ViewControllers/SourcesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "fetchSources()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "23050EF0-2C10-4F3D-93EE-0C6B0CF8537D - 50e961b8b9e25526"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NewsNewsNews.SourcesViewController.(fetchSources in _418A08388B0F8CDC6C523DF9801F80C8)() -&gt; ()"
+                  moduleName = "NewsNewsNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/theappexperts/SwiftProjects/NewsNewsNews/NewsNewsNews/ViewControllers/SourcesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "956">
+               </Location>
+               <Location
+                  uuid = "23050EF0-2C10-4F3D-93EE-0C6B0CF8537D - 566d1e9f41ba9e9c"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NewsNewsNews.SourcesViewController.(fetchSources in _418A08388B0F8CDC6C523DF9801F80C8)() -&gt; ()"
+                  moduleName = "NewsNewsNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/theappexperts/SwiftProjects/NewsNewsNews/NewsNewsNews/ViewControllers/SourcesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7412CD97-24CF-4FC5-AD69-3CCAC6339170"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsNewsNews/ViewControllers/SourcesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

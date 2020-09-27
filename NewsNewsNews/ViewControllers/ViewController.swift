@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "theCell"
-    
+//    let Sources
     var categoriesArray: [String] = []
     
     fileprivate func setTableView() {
@@ -70,10 +70,4 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 }
 
 
-struct Sources: Decodable {
-    let sources:[NewsCategory]
-}
 
-struct NewsCategory:Decodable {
-    let category: String
-}

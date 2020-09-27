@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D77311E82520828400A1BAF2 /* Sources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77311E72520828400A1BAF2 /* Sources.swift */; };
 		D77474A7251E63A80066D55C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77474A6251E63A80066D55C /* AppDelegate.swift */; };
 		D77474A9251E63A80066D55C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77474A8251E63A80066D55C /* SceneDelegate.swift */; };
 		D77474AB251E63A80066D55C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77474AA251E63A80066D55C /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D77311E72520828400A1BAF2 /* Sources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources.swift; sourceTree = "<group>"; };
 		D77474A3251E63A80066D55C /* NewsNewsNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsNewsNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77474A6251E63A80066D55C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D77474A8251E63A80066D55C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D77311E62520824B00A1BAF2 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				D77311E72520828400A1BAF2 /* Sources.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		D774749A251E63A80066D55C = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 				D77474A8251E63A80066D55C /* SceneDelegate.swift */,
 				D7751FA7251FAE9100BD484E /* ViewControllers */,
 				D7751FA8251FAEA100BD484E /* Networking */,
+				D77311E62520824B00A1BAF2 /* Objects */,
 				D77474AC251E63A80066D55C /* Main.storyboard */,
 				D77474B2251E63B00066D55C /* Assets.xcassets */,
 				D77474B4251E63B00066D55C /* LaunchScreen.storyboard */,
@@ -173,6 +184,7 @@
 				D7751FA6251FA5F500BD484E /* CollectionViewController.swift in Sources */,
 				D77474AB251E63A80066D55C /* ViewController.swift in Sources */,
 				D7751FAA251FAEE600BD484E /* NewsApi.swift in Sources */,
+				D77311E82520828400A1BAF2 /* Sources.swift in Sources */,
 				D7751FAE251FE6EB00BD484E /* NetworkURLComponent.swift in Sources */,
 				D77474A7251E63A80066D55C /* AppDelegate.swift in Sources */,
 				D77474A9251E63A80066D55C /* SceneDelegate.swift in Sources */,

@@ -12,15 +12,15 @@ class SourcesViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var sourcesTableView: UITableView!
-    var sourceArray:[String]=[]
+    var sourceArray:[NewsCategory]=[]
     let cellIdentifier: String = "sourceCell"
     var category:String?
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Source category > \(category)")
         self.sourcesTableView.dataSource = self
         self.sourcesTableView.delegate = self
+        self.sourcesTableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
         
         setLabelText()
         fetchSources()
@@ -38,7 +38,17 @@ class SourcesViewController: UIViewController, UITableViewDataSource, UITableVie
         var urlComponent = urlComponents.urlComponents
         guard let category = self.category else {return}
         urlComponent.queryItems?.append( URLQueryItem(name: "category", value: category))
-        print("query url> \(urlComponent.url)")
+        guard let url = urlComponent.url else{return}
+        print("query url> \(url)")
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else {return}
+            let sources = try? JSONDecoder().decode(Sources.self, from: data)
+            guard let source = sources else {return}
+            self.sourceArray.append(contentsOf: source.sources)
+            DispatchQueue.main.async {
+                self.sourcesTableView.reloadData()
+            }
+        }.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,9 +57,9 @@ class SourcesViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
-        
-        cell.backgroundColor = .blue
-        
+        cell.textLabel?.textAlignment = .center
+        //        cell.backgroundColor = .blue
+        cell.textLabel?.text = self.sourceArray[indexPath.row].name
         
         return cell
     }
