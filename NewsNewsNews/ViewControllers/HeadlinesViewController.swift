@@ -12,7 +12,7 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var headlinesTableView: UITableView!
     @IBOutlet weak var headlinesLabel: UILabel!
-    let cellIdentifier = "headlinesCell"
+    let cellIdentifier = "HeadlinesTableViewCell"
     var headlines:[Article]=[]
     var source:NewsCategory?
     
@@ -46,7 +46,8 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         self.headlinesTableView.dataSource = self
         self.headlinesTableView.delegate = self
-        self.headlinesTableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+//        self.headlinesTableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        self.headlinesTableView.register(UINib(nibName: "HeadlinesTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
         
         setLabel()
         fetchHeadlines()
@@ -57,12 +58,15 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
-        
+        var cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeadlinesTableViewCell
+        if cell == nil{
+            cell = UITableViewCell(style: .value2, reuseIdentifier: self.cellIdentifier) as! HeadlinesTableViewCell
+        }
         let article = self.headlines[indexPath.row]
-        cell.textLabel?.text = article.title
+        cell.titleLabel?.text = article.title
+        cell.descriptionLabel?.text = article.description
         if let data = try? Data(contentsOf: article.urlToImage){
-            cell.imageView?.image = UIImage(data: data)
+            cell.imageViewPlaceholder?.image = UIImage(data: data)
         }
         
         return cell
