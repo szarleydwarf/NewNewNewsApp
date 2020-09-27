@@ -68,10 +68,10 @@ class CollectionViewController : UIViewController, UICollectionViewDataSource, U
      }
      
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath)
+         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! HeadlineCell
          
-             cell.backgroundColor = self.randomColor()
-        cell.articleDescriptionLabel.text = "LOL"
+//             cell.backgroundColor = self.randomColor()
+        cell.articleDescriptionLabel?.text = "LOL"
 
 //             update(the: cell, with: self.headlines[indexPath.row])
                 

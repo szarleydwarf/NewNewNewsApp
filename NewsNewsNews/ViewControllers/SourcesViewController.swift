@@ -64,9 +64,12 @@ class SourcesViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let collectionViewController = storyboard.instantiateViewController(withIdentifier: "CollectionViewController") as! CollectionViewController
-        
-        collectionViewController.source = self.sourceArray[indexPath.row]
-        self.navigationController?.pushViewController(collectionViewController, animated: true)
+        let headlinesViewController = storyboard.instantiateViewController(identifier: "HeadlinesViewController") as! HeadlinesViewController
+        headlinesViewController.source = self.sourceArray[indexPath.row]
+        self.navigationController?.pushViewController(headlinesViewController, animated: true)
+//        let collectionViewController = storyboard.instantiateViewController(withIdentifier: "CollectionViewController") as! CollectionViewController
+//
+//        collectionViewController.source = self.sourceArray[indexPath.row]
+//        self.navigationController?.pushViewController(collectionViewController, animated: true)
     }
 }
