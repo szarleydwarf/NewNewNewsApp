@@ -3,24 +3,20 @@ PODS:
     - Kingfisher/Core (= 5.15.4)
   - Kingfisher/Core (5.15.4)
   - ProgressHUD (13.4)
-  - SMWebView (1.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 5.0)
   - ProgressHUD (~> 13.4)
-  - SMWebView
 
 SPEC REPOS:
   trunk:
     - Kingfisher
     - ProgressHUD
-    - SMWebView
 
 SPEC CHECKSUMS:
   Kingfisher: 657dc1077e5bbbfff864194c79f29e35b722d062
   ProgressHUD: 137a7fc677487c5581668f4490563124fb35c232
-  SMWebView: 603d4c80f255c75f03a58570f815c5dbdc37bcd1
 
-PODFILE CHECKSUM: 33cbf6161d3d2d81c8b65747e00613b48fe84714
+PODFILE CHECKSUM: 6cbcc8208cac1e11d223d37ea4d4b2cf5e8af9b8
 
 COCOAPODS: 1.9.3
