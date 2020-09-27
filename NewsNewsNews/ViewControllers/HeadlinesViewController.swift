@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import Kingfisher
 import ProgressHUD
 
@@ -15,6 +16,7 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var headlinesTableView: UITableView!
     @IBOutlet weak var headlinesLabel: UILabel!
     let cellIdentifier = "HeadlinesTableViewCell"
+    let coreDataController = CoreDataController.shared
     var headlines:[Article]=[]
     var source:NewsCategory?
     
@@ -54,12 +56,21 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         self.headlinesLabel.text = text
     }
     
+    func markAsFavourite(cell: UITableViewCell) {
+        guard let indexPath = self.headlinesTableView.indexPath(for: cell) else {return}
+        print("I AM \(indexPath)")
+        print(self.headlines[indexPath.row].source.id)
+        let mainCtx = self.coreDataController.mainCtx
+        var favorite = FavouritArticle(context: mainCtx)
+        favorite.id = self.headlines[indexPath.row].source.id
+        favorite.name = self.headlines[indexPath.row].source.name
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.headlinesTableView.dataSource = self
         self.headlinesTableView.delegate = self
-        self.headlinesTableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+        self.headlinesTableView.register(HeadlinesCell.self, forCellReuseIdentifier: self.cellIdentifier)
 //        self.headlinesTableView.register(UINib(nibName: "HeadlinesTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
         
         setLabel()
@@ -71,7 +82,8 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeadlinesCell
+        cell.link = self
         let headline = self.headlines[indexPath.row]
 
         cell.imageView?.kf.setImage(with: headline.urlToImage, placeholder: UIImage(imageLiteralResourceName: "ninja"))
