@@ -10,6 +10,7 @@ import UIKit
 
 class HeadlinesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var favouriteSwitch: UISwitch!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageViewPlaceholder: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!

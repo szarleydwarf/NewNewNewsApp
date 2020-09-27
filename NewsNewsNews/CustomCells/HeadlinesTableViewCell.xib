@@ -38,6 +38,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUo-Hc-5mX">
+                        <rect key="frame" x="271" y="96" width="49" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </switch>
                 </subviews>
                 <constraints>
                     <constraint firstItem="hv9-Qu-BDT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="VNO-Qf-Xgb"/>
@@ -54,6 +58,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="descriptionLabel" destination="aNS-7m-JJK" id="gB7-vU-BUn"/>
+                <outlet property="favouriteSwitch" destination="mUo-Hc-5mX" id="ZFc-Ed-iGs"/>
                 <outlet property="imageView" destination="SMs-MG-4Bo" id="GCs-sG-7gs"/>
                 <outlet property="titleLabel" destination="hv9-Qu-BDT" id="0Ip-7s-zGW"/>
             </connections>

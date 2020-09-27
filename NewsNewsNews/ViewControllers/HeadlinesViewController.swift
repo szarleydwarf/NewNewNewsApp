@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Kingfisher
+import ProgressHUD
 
 class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -15,6 +17,18 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
     let cellIdentifier = "HeadlinesTableViewCell"
     var headlines:[Article]=[]
     var source:NewsCategory?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ProgressHUD.colorAnimation = .red
+        ProgressHUD.animationType = .lineScaling
+        ProgressHUD.show()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        ProgressHUD.dismiss()
+    }
     
     fileprivate func fetchHeadlines(){
         var urlComponents = NetworkURLComponent()
@@ -46,8 +60,8 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         self.headlinesTableView.dataSource = self
         self.headlinesTableView.delegate = self
-//        self.headlinesTableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
-        self.headlinesTableView.register(UINib(nibName: "HeadlinesTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
+        self.headlinesTableView.register(HeadlinesTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+//        self.headlinesTableView.register(UINib(nibName: "HeadlinesTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
         
         setLabel()
         fetchHeadlines()
@@ -59,15 +73,14 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeadlinesTableViewCell
-        if cell == nil{
-            cell = UITableViewCell(style: .value2, reuseIdentifier: self.cellIdentifier) as! HeadlinesTableViewCell
-        }
+        
         let article = self.headlines[indexPath.row]
         cell.titleLabel?.text = article.title
         cell.descriptionLabel?.text = article.description
-        if let data = try? Data(contentsOf: article.urlToImage){
-            cell.imageViewPlaceholder?.image = UIImage(data: data)
-        }
+//        if let data = try? Data(contentsOf: article.urlToImage){
+//            cell.imageViewPlaceholder?.image = UIImage(data: data)
+//            cell.imageViewPlaceholder.kf.setImage(with: article.urlToImage, placeholder: UIImage(imageLiteralResourceName: "ninja"))
+//        }
         
         return cell
     }
