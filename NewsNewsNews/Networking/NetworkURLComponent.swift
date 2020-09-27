@@ -8,14 +8,16 @@
 
 import Foundation
 
+
+
 struct NetworkURLComponent {
     var urlComponents:URLComponents{
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "newsapi.org"
-        urlComponents.path = "/v2/sources?apiKey=86316c5c482a49cca90420b39ee0a695"
+        urlComponents.path = "/v2/sources"
+        urlComponents.queryItems = [URLQueryItem(name: "apiKey", value: "86316c5c482a49cca90420b39ee0a695")]
         
         return urlComponents
     }
-    
 }

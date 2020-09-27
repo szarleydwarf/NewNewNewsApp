@@ -10,6 +10,7 @@ import UIKit
 
 class SourcesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var sourcesTableView: UITableView!
     var sourceArray:[String]=[]
     let cellIdentifier: String = "sourceCell"
@@ -21,11 +22,23 @@ class SourcesViewController: UIViewController, UITableViewDataSource, UITableVie
         self.sourcesTableView.dataSource = self
         self.sourcesTableView.delegate = self
         
+        setLabelText()
         fetchSources()
     }
     
+    fileprivate func setLabelText() {
+        guard var text = self.sourceLabel.text else { return }
+        guard let unwrapedCategory = category else { return }
+        text += unwrapedCategory
+        self.sourceLabel.text = text
+    }
+    
     fileprivate func fetchSources() {
-        
+        let urlComponents = NetworkURLComponent()
+        var urlComponent = urlComponents.urlComponents
+        guard let category = self.category else {return}
+        urlComponent.queryItems?.append( URLQueryItem(name: "category", value: category))
+        print("query url> \(urlComponent.url)")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -68,53 +68,5 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A6D8CF63-9C29-490E-9365-D1C901E059B2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NewsNewsNews/ViewControllers/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "fetchCategories()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A6D8CF63-9C29-490E-9365-D1C901E059B2 - 3c3cd9a5b2573bb5"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NewsNewsNews.ViewController.(fetchCategories in _DD6FBD7F0A5E368E6AA0D74A98704892)() -&gt; ()"
-                  moduleName = "NewsNewsNews"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/theappexperts/SwiftProjects/NewsNewsNews/NewsNewsNews/ViewControllers/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "1221">
-               </Location>
-               <Location
-                  uuid = "A6D8CF63-9C29-490E-9365-D1C901E059B2 - a4829b9cefc5356f"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NewsNewsNews.ViewController.(fetchCategories in _DD6FBD7F0A5E368E6AA0D74A98704892)() -&gt; ()"
-                  moduleName = "NewsNewsNews"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/theappexperts/SwiftProjects/NewsNewsNews/NewsNewsNews/ViewControllers/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "274">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

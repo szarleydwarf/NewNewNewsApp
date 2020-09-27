@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "theCell"
-    let urlString:String = "https://newsapi.org/v2/sources?apiKey=86316c5c482a49cca90420b39ee0a695"
+    
     var categoriesArray: [String] = []
     
     fileprivate func setTableView() {
@@ -21,17 +21,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     fileprivate func fetchCategories() {
-        let urlComponent = NetworkURLComponent()
-        let urlc = urlComponent.urlComponents.url
-        print("url >\(urlc)")
-//        guard let url = URL(string: urlString) else {return}
-        guard let url = urlc else {return}
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
+        let urlComponents = NetworkURLComponent()
+        guard let urlComponent = urlComponents.urlComponents.url else {return}
+        print("1 url >\(urlComponent)")
+        URLSession.shared.dataTask(with: urlComponent) { (data, _, error) in
             guard let data = data else {return}
             let sources = try? JSONDecoder().decode(Sources.self, from: data)
             guard let unwrapedSources = sources else {return}
             //for sure there is a better way to do this
-            //todo chck this later
+            //todo check this later
             for category in unwrapedSources.sources {
                 self.categoriesArray.append(category.category)
             }

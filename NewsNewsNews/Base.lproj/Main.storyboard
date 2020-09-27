@@ -17,16 +17,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ehy-eB-UaG">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="50" y="194.5" width="314" height="467.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available news categories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ea-S7-67m">
+                                <rect key="frame" x="20" y="128" width="374" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ehy-eB-UaG" secondAttribute="bottom" id="Uba-Vu-ehw"/>
-                            <constraint firstItem="Ehy-eB-UaG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lIJ-iT-Kep"/>
-                            <constraint firstItem="Ehy-eB-UaG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qYg-1d-gDU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ehy-eB-UaG" secondAttribute="trailing" id="y2q-1i-vFI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Ea-S7-67m" secondAttribute="trailing" constant="20" id="9hq-oJ-gPS"/>
+                            <constraint firstItem="6Ea-S7-67m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="F9E-wd-zmp"/>
+                            <constraint firstItem="Ehy-eB-UaG" firstAttribute="top" secondItem="6Ea-S7-67m" secondAttribute="bottom" constant="40" id="GNz-iS-g4x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ehy-eB-UaG" secondAttribute="bottom" constant="200" id="Uba-Vu-ehw"/>
+                            <constraint firstItem="Ehy-eB-UaG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="qYg-1d-gDU"/>
+                            <constraint firstItem="6Ea-S7-67m" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="ulJ-XV-tFr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ehy-eB-UaG" secondAttribute="trailing" constant="50" id="y2q-1i-vFI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -47,25 +56,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jk0-JT-1hN">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jk0-JT-1hN">
+                                <rect key="frame" x="20" y="133" width="374" height="709"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="FTQ-yl-tv2" id="kok-IR-qmP"/>
                                     <outlet property="delegate" destination="FTQ-yl-tv2" id="aQ1-83-PDS"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available sources for category " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cn-z8-1bA" userLabel="Available sorces for category">
+                                <rect key="frame" x="20" y="74" width="374" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Jk0-JT-1hN" firstAttribute="leading" secondItem="TFr-SJ-81l" secondAttribute="leading" id="G31-pg-gnb"/>
-                            <constraint firstItem="TFr-SJ-81l" firstAttribute="bottom" secondItem="Jk0-JT-1hN" secondAttribute="bottom" id="IqY-EZ-WcI"/>
-                            <constraint firstItem="Jk0-JT-1hN" firstAttribute="top" secondItem="TFr-SJ-81l" secondAttribute="top" id="Vrh-jD-DvI"/>
-                            <constraint firstItem="TFr-SJ-81l" firstAttribute="trailing" secondItem="Jk0-JT-1hN" secondAttribute="trailing" id="jJo-h7-4hw"/>
+                            <constraint firstItem="Jk0-JT-1hN" firstAttribute="leading" secondItem="TFr-SJ-81l" secondAttribute="leading" constant="20" id="G31-pg-gnb"/>
+                            <constraint firstItem="TFr-SJ-81l" firstAttribute="bottom" secondItem="Jk0-JT-1hN" secondAttribute="bottom" constant="20" id="IqY-EZ-WcI"/>
+                            <constraint firstItem="Jk0-JT-1hN" firstAttribute="top" secondItem="3Cn-z8-1bA" secondAttribute="bottom" constant="30" id="NYN-Bp-VtU"/>
+                            <constraint firstItem="3Cn-z8-1bA" firstAttribute="leading" secondItem="TFr-SJ-81l" secondAttribute="leading" constant="20" id="WmW-vE-Hvy"/>
+                            <constraint firstItem="3Cn-z8-1bA" firstAttribute="top" secondItem="TFr-SJ-81l" secondAttribute="top" constant="30" id="XKq-fx-gZe"/>
+                            <constraint firstItem="TFr-SJ-81l" firstAttribute="trailing" secondItem="Jk0-JT-1hN" secondAttribute="trailing" constant="20" id="jJo-h7-4hw"/>
+                            <constraint firstItem="TFr-SJ-81l" firstAttribute="trailing" secondItem="3Cn-z8-1bA" secondAttribute="trailing" constant="20" id="m69-SZ-wiz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TFr-SJ-81l"/>
                     </view>
                     <connections>
+                        <outlet property="sourceLabel" destination="3Cn-z8-1bA" id="xUW-I9-Yed"/>
                         <outlet property="sourcesTableView" destination="Jk0-JT-1hN" id="z5O-MN-4K3"/>
                     </connections>
                 </viewController>
