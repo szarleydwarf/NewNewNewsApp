@@ -62,7 +62,7 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         let mainCtx = self.coreDataController.mainCtx
         let favorite = FavouritArticle(context: mainCtx)
         favorite.articleID = self.headlines[indexPath.row].source.id
-        favorite.articleName = self.headlines[indexPath.row].source.name
+        favorite.articleName = self.headlines[indexPath.row].title
         favorite.isFavourite = true
         if self.coreDataController.save() {
             self.showToast(message: "Saved as favourite", font: .systemFont(ofSize: 18.0))
@@ -73,7 +73,7 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
 //https://stackoverflow.com/questions/31540375/how-to-toast-message-in-swift
     func showToast(message : String, font: UIFont) {
 
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 125, y: self.view.frame.size.height/2-90, width: 250, height: 50))
         toastLabel.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.6)
         toastLabel.textColor = UIColor.white
         toastLabel.font = font
@@ -95,12 +95,12 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         self.headlinesTableView.dataSource = self
         self.headlinesTableView.delegate = self
         self.headlinesTableView.register(HeadlinesCell.self, forCellReuseIdentifier: self.cellIdentifier)
-        
+     
         setLabel()
         fetchHeadlines()
         fetchFavourites()
     }
-    
+
     func fetchFavourites() {
         let ctx = self.coreDataController.mainCtx
         let fetchRequest: NSFetchRequest<FavouritArticle> = FavouritArticle.fetchRequest()
@@ -110,31 +110,30 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
             self.showToast(message: "Error fetching favourite articles \(err)", font: .systemFont(ofSize: 20.0))
         }
     }
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.headlines.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeadlinesCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeadlinesCell
         cell.link = self
         let headline = self.headlines[indexPath.row]
-        
-        guard let article = isFavorite(headline: headline) else {return}
-        cell.accessoryView?.tintColor = article.isFavourite ? .red : .lightGray
+        print("count \(self.fetchedArticles.count) >\(self.fetchedArticles.last?.articleName) > \(headline.source.name)")
+        self.checkIfFavourite(headline: headline, update: cell)
+
         cell.imageView?.kf.setImage(with: headline.urlToImage, placeholder: UIImage(imageLiteralResourceName: "ninja"))
         cell.textLabel?.text = headline.title
         cell.selectionStyle = .none
         return cell
     }
-    
-    func isFavorite(headline: Article) -> Article {
-        for article in self.fetchedArticles{
-            if headline.source.id == article.articleID && headline.source.name == article.articleName {
-                    print("it is favourite"+headline.source.id+" "+article.articleID+" "+headline.source.name+" "+article.articleName)
-                return article
+    func checkIfFavourite(headline:Article, update cell : HeadlinesCell) {
+        for article in self.fetchedArticles {
+            if headline.title==article.articleName {
+                print("we have fav \(headline.title) >< \(article.articleName)")
+                cell.accessoryView?.tintColor = article.isFavourite ? .red : .lightGray
             }
         }
-        return nil
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
