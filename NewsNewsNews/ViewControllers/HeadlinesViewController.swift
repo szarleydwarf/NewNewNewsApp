@@ -18,6 +18,7 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
     let cellIdentifier = "HeadlinesTableViewCell"
     let coreDataController = CoreDataController.shared
     var headlines:[Article]=[]
+    var fetchedArticles:[FavouritArticle]=[]
     var source:NewsCategory?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,25 +59,57 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
     
     func markAsFavourite(cell: UITableViewCell) {
         guard let indexPath = self.headlinesTableView.indexPath(for: cell) else {return}
-        print("I AM \(indexPath)")
-        print(self.headlines[indexPath.row].source.id)
         let mainCtx = self.coreDataController.mainCtx
-        var favorite = FavouritArticle(context: mainCtx)
-        favorite.id = self.headlines[indexPath.row].source.id
-        favorite.name = self.headlines[indexPath.row].source.name
+        let favorite = FavouritArticle(context: mainCtx)
+        favorite.articleID = self.headlines[indexPath.row].source.id
+        favorite.articleName = self.headlines[indexPath.row].source.name
+        favorite.isFavourite = true
+        if self.coreDataController.save() {
+            self.showToast(message: "Saved as favourite", font: .systemFont(ofSize: 18.0))
+        }
     }
 
+//function  showToast copied from
+//https://stackoverflow.com/questions/31540375/how-to-toast-message-in-swift
+    func showToast(message : String, font: UIFont) {
+
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+             toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.headlinesTableView.dataSource = self
         self.headlinesTableView.delegate = self
         self.headlinesTableView.register(HeadlinesCell.self, forCellReuseIdentifier: self.cellIdentifier)
-//        self.headlinesTableView.register(UINib(nibName: "HeadlinesTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
         
         setLabel()
         fetchHeadlines()
+        fetchFavourites()
     }
     
+    func fetchFavourites() {
+        let ctx = self.coreDataController.mainCtx
+        let fetchRequest: NSFetchRequest<FavouritArticle> = FavouritArticle.fetchRequest()
+        do{
+            self.fetchedArticles = try ctx.fetch(fetchRequest)
+        } catch let err {
+            self.showToast(message: "Error fetching favourite articles \(err)", font: .systemFont(ofSize: 20.0))
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.headlines.count
     }
@@ -85,11 +118,23 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         var cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeadlinesCell
         cell.link = self
         let headline = self.headlines[indexPath.row]
-
+        
+        guard let article = isFavorite(headline: headline) else {return}
+        cell.accessoryView?.tintColor = article.isFavourite ? .red : .lightGray
         cell.imageView?.kf.setImage(with: headline.urlToImage, placeholder: UIImage(imageLiteralResourceName: "ninja"))
         cell.textLabel?.text = headline.title
         cell.selectionStyle = .none
         return cell
+    }
+    
+    func isFavorite(headline: Article) -> Article {
+        for article in self.fetchedArticles{
+            if headline.source.id == article.articleID && headline.source.name == article.articleName {
+                    print("it is favourite"+headline.source.id+" "+article.articleID+" "+headline.source.name+" "+article.articleName)
+                return article
+            }
+        }
+        return nil
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

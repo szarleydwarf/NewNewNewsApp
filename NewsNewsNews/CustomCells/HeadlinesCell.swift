@@ -16,7 +16,7 @@ class HeadlinesCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
 //        backgroundColor = .brown
-        favButton.setImage(UIImage(imageLiteralResourceName: "favIconYellow"), for: .normal)
+        favButton.setImage(UIImage(imageLiteralResourceName: "star"), for: .normal)
         favButton.tintColor = .systemGray
         favButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         favButton.addTarget(self, action: #selector(handleMarkAsFavorite), for: .touchUpInside)
