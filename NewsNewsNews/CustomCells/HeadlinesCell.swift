@@ -8,9 +8,13 @@
 
 import UIKit
 
+protocol HeadlinesCellDelegator {
+    func markAsFavourite(cell: HeadlinesCell)
+}
+
 class HeadlinesCell: UITableViewCell {
     let favButton = UIButton(type: .system)
-    var link: HeadlinesViewController?
+    var delegate: HeadlinesViewController?
           
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,7 +30,7 @@ class HeadlinesCell: UITableViewCell {
     
     @objc private func handleMarkAsFavorite() {
         self.favButton.tintColor = .red
-        self.link?.markAsFavourite(cell: self)
+        self.delegate?.markAsFavourite(cell: self)
     }
     
     required init?(coder: NSCoder) {

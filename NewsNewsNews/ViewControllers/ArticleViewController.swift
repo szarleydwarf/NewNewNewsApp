@@ -10,13 +10,17 @@ import UIKit
 import WebKit
 import ProgressHUD
 
+protocol ArticleViewControllerDelegate {
+    func markAsFavourite(with article: Article)
+}
+
 class ArticleViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var articletitleLAbel: UILabel!
     @IBOutlet weak var webView: WKWebView!
     
     var source:Article?
-    var link:HeadlinesViewController?
+    var delegate:HeadlinesViewController?
       
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,10 +36,9 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
 
     @IBAction func markAsFavourite(_ sender: UIButton) {
         sender.tintColor = .red
-        guard let article = self.source else {
-            return
+        if let article = self.source {
+            self.delegate?.markAsFavourite(with: article)
         }
-        self.link?.markAsFavourite(with: article)
     }
     
     

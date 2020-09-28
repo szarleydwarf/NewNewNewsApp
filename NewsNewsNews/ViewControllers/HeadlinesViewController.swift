@@ -11,7 +11,7 @@ import CoreData
 import Kingfisher
 import ProgressHUD
 
-class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ArticleViewControllerDelegate, HeadlinesCellDelegator {
     
     @IBOutlet weak var headlinesTableView: UITableView!
     @IBOutlet weak var headlinesLabel: UILabel!
@@ -56,12 +56,18 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         text += sourceName
         self.headlinesLabel.text = text
     }
-    
-    func markAsFavourite(cell: UITableViewCell) {
+  
+    func markAsFavourite(cell: HeadlinesCell) {
         guard let indexPath = self.headlinesTableView.indexPath(for: cell) else {return}
-         let article = self.headlines[indexPath.row]
-         self.markAsFavourite(with: article)
-//        let mainCtx = self.coreDataController.mainCtx
+        let article = self.headlines[indexPath.row]
+        self.markAsFavourite(with: article)
+    }
+
+    func markAsFavourite(cell: UITableViewCell) {
+//        guard let indexPath = self.headlinesTableView.indexPath(for: cell) else {return}
+//         let article = self.headlines[indexPath.row]
+//         self.markAsFavourite(with: article)
+////        let mainCtx = self.coreDataController.mainCtx
 //        let favorite = FavouritArticle(context: mainCtx)
 //        favorite.articleID = self.headlines[indexPath.row].source.id
 //        favorite.articleName = self.headlines[indexPath.row].title
@@ -133,7 +139,7 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeadlinesCell
-        cell.link = self
+        cell.delegate = self
         let headline = self.headlines[indexPath.row]
         self.checkIfFavourite(headline: headline, update: cell)
 
@@ -156,7 +162,7 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         let articleViewController = storyboard.instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
         
         articleViewController.source = self.headlines[indexPath.row]
-        articleViewController.link = self
+        articleViewController.delegate = self
         self.navigationController?.pushViewController(articleViewController, animated: true)
     }
 }
