@@ -59,14 +59,30 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
     
     func markAsFavourite(cell: UITableViewCell) {
         guard let indexPath = self.headlinesTableView.indexPath(for: cell) else {return}
+         let article = self.headlines[indexPath.row]
+         self.markAsFavourite(with: article)
+//        let mainCtx = self.coreDataController.mainCtx
+//        let favorite = FavouritArticle(context: mainCtx)
+//        favorite.articleID = self.headlines[indexPath.row].source.id
+//        favorite.articleName = self.headlines[indexPath.row].title
+//        favorite.isFavourite = true
+//        if self.coreDataController.save() {
+//            self.showToast(message: "Saved as favourite", font: .systemFont(ofSize: 18.0))
+//        }
+    }
+    
+    func markAsFavourite(with source: Article){
+        print("second mark \(source.title)")
         let mainCtx = self.coreDataController.mainCtx
         let favorite = FavouritArticle(context: mainCtx)
-        favorite.articleID = self.headlines[indexPath.row].source.id
-        favorite.articleName = self.headlines[indexPath.row].title
+        favorite.articleID = source.source.id
+        favorite.articleName = source.title
         favorite.isFavourite = true
+
         if self.coreDataController.save() {
             self.showToast(message: "Saved as favourite", font: .systemFont(ofSize: 18.0))
         }
+
     }
 
 //function  showToast copied from
@@ -119,7 +135,6 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeadlinesCell
         cell.link = self
         let headline = self.headlines[indexPath.row]
-        print("count \(self.fetchedArticles.count) >\(self.fetchedArticles.last?.articleName) > \(headline.source.name)")
         self.checkIfFavourite(headline: headline, update: cell)
 
         cell.imageView?.kf.setImage(with: headline.urlToImage, placeholder: UIImage(imageLiteralResourceName: "ninja"))
@@ -127,10 +142,10 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         cell.selectionStyle = .none
         return cell
     }
+    
     func checkIfFavourite(headline:Article, update cell : HeadlinesCell) {
         for article in self.fetchedArticles {
             if headline.title==article.articleName {
-                print("we have fav \(headline.title) >< \(article.articleName)")
                 cell.accessoryView?.tintColor = article.isFavourite ? .red : .lightGray
             }
         }
@@ -141,7 +156,7 @@ class HeadlinesViewController: UIViewController, UITableViewDataSource, UITableV
         let articleViewController = storyboard.instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
         
         articleViewController.source = self.headlines[indexPath.row]
-        
+        articleViewController.link = self
         self.navigationController?.pushViewController(articleViewController, animated: true)
     }
 }

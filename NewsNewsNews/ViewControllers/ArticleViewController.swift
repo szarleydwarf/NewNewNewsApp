@@ -16,6 +16,7 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
     
     var source:Article?
+    var link:HeadlinesViewController?
       
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -29,6 +30,16 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
         ProgressHUD.dismiss()
     }
 
+    @IBAction func markAsFavourite(_ sender: UIButton) {
+        sender.tintColor = .red
+        guard let article = self.source else {
+            return
+        }
+        self.link?.markAsFavourite(with: article)
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.navigationDelegate = self

@@ -126,12 +126,26 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmK-5w-8UG">
+                                <rect key="frame" x="344" y="54" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gmK-5w-8UG" secondAttribute="height" multiplier="1:1" id="6Y5-mu-RPG"/>
+                                    <constraint firstAttribute="height" constant="60" id="E1d-Tm-iTP"/>
+                                    <constraint firstAttribute="width" constant="60" id="OKa-29-nLf"/>
+                                </constraints>
+                                <state key="normal" image="star"/>
+                                <connections>
+                                    <action selector="markAsFavourite:" destination="1h0-AS-2Hk" eventType="touchUpInside" id="zdU-b2-GCk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="gmK-5w-8UG" firstAttribute="top" secondItem="4Zg-Pu-Ozh" secondAttribute="top" id="H7Q-Wo-V7G"/>
                             <constraint firstItem="Bqb-zD-xo4" firstAttribute="trailing" secondItem="4Zg-Pu-Ozh" secondAttribute="trailing" constant="10" id="PCR-PV-rDF"/>
                             <constraint firstItem="4Zg-Pu-Ozh" firstAttribute="top" secondItem="Bqb-zD-xo4" secondAttribute="top" constant="10" id="beR-Np-Nl7"/>
                             <constraint firstItem="4Zg-Pu-Ozh" firstAttribute="leading" secondItem="Bqb-zD-xo4" secondAttribute="leading" constant="10" id="bwd-vh-cK2"/>
+                            <constraint firstItem="gmK-5w-8UG" firstAttribute="trailing" secondItem="4Zg-Pu-Ozh" secondAttribute="trailing" id="jua-Nv-gGM"/>
                             <constraint firstItem="Bqb-zD-xo4" firstAttribute="bottom" secondItem="4Zg-Pu-Ozh" secondAttribute="bottom" id="zmq-us-o2C"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bqb-zD-xo4"/>
@@ -209,5 +223,6 @@
     </scenes>
     <resources>
         <image name="ninja" width="225" height="225"/>
+        <image name="star" width="183" height="177"/>
     </resources>
 </document>
